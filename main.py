@@ -10,7 +10,7 @@ telebot.logger.setLevel(logging.DEBUG)
 
 bot = telebot.TeleBot('6432599280:AAGtVe1czZYj5wFfDo4SqeNWjJpwhvvfoKc')
 
-admin_user_ids = [487545908, 5876436640]
+admin_user_ids = [487545908, 1262539577]
 
 conn = sqlite3.connect("db.db", check_same_thread=False)
 
@@ -695,7 +695,7 @@ def start_contract_voting(contract_id, message):
         cursor.execute("INSERT INTO admin_contract_votes (admin_id, contract_id, voted) VALUES (?, ?, ?)", (admin_id, contract_id, 0))
         conn.commit()
 
-        bot.send_message(admin_id, f'На голосование поступил контрак:\n\n{message}\n\nВершите его судьбой!', reply_markup=vote_keyboard, parse_mode='html')
+        bot.send_message(admin_id, f'На голосование поступил контракт:\n\n{message}\n\nВершите его судьбой!', reply_markup=vote_keyboard, parse_mode='html')
 
 
 @bot.callback_query_handler(func=lambda call: True)
@@ -758,6 +758,20 @@ def callback_handler(call):
     if callback == 'button_status':
         user_data[user_id]['button_status'] = not (user_data[user_id]['button_status'])
         contract_start_message1(user_id)
+
+
+@bot.message_handler(commands=['developers'])
+def show_developers(message):
+    user_id = message.chat.id
+    z1blo = bot.get_chat(487545908).username
+    ma = bot.get_chat(487545908).username
+    mi = bot.get_chat(1262539577).username
+    msg = f'''Разработчики данного бота:
+@{z1blo} - старший разработчик
+@{ma} - мл. разработчик
+@{mi} - мл. разработчик'''
+    bot.send_message(user_id, msg)
+
 
 # bot.polling()
 
