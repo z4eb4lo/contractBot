@@ -20,11 +20,19 @@ cursor.execute('''CREATE TABLE IF NOT EXISTS contracts (
                     contract_id TEXT,
                     message_id INT,
                     chat_id INT,
-                    message TEXT
+                    message TEXT,
+                    button TEXT
                 )''')
 conn.commit()
 
 cursor.execute('''CREATE TABLE IF NOT EXISTS admin_votes (
+                    admin_id TEXT,
+                    contract_id TEXT,
+                    voted INT
+                )''')
+conn.commit()
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS admin_contract_votes (
                     admin_id TEXT,
                     contract_id TEXT,
                     voted INT
@@ -41,6 +49,12 @@ conn.commit()
 cursor.execute('''CREATE TABLE IF NOT EXISTS pretendents (
                     contract_id TEXT,
                     pretendent_id INT,
+                    votes INT
+                )''')
+conn.commit()
+
+cursor.execute('''CREATE TABLE IF NOT EXISTS contract_vote (
+                    contract_id TEXT,
                     votes INT
                 )''')
 conn.commit()
@@ -227,7 +241,7 @@ def make_contract_message_signed(contract_id):
 def make_onetime_contract_message_signed(contract_id, username):
     cursor.execute("SELECT * FROM contracts WHERE contract_id = ?", (contract_id,))
     rows = cursor.fetchall()
-    contract_id, message_id, chat_id, messagecon = rows[0]
+    contract_id, message_id, chat_id, messagecon, button = rows[0]
     messagecon = messagecon.replace('😴Ожидает своего исполнителя', f'✍️@{username} выполняет контракт', 1)
     bot.edit_message_text(messagecon, chat_id, message_id, parse_mode='html')
 
@@ -247,11 +261,11 @@ def start(message):
         contract_id = message.text.replace('/start signonetime', '', 1)
         cursor.execute("SELECT * FROM contracts WHERE contract_id = ?", (contract_id,))
         rows = cursor.fetchall()
-        contract_id, message_id, chat_id, messagecon = rows[0]
+        contract_id, message_id, chat_id, messagecon, button = rows[0]
         bot.send_message(user_id, f'Вы подписали контракт {contract_id}')
         make_onetime_contract_message_signed(contract_id, username)
         for admin_id in admin_user_ids:
-            bot.send_message(admin_id, f'@{username} подписал одноразовый контракт с номером {contract_id}',
+            bot.send_message(admin_id, f'@{username} подписал одноразовый контракт с номером <code>{contract_id}</code>',
                              parse_mode='html')
     if message.text.startswith('/start signkonkurs'):
         contract_id = message.text.replace('/start signkonkurs', '', 1)
@@ -262,11 +276,11 @@ def start(message):
             check_for_pretender(user_id, contract_id)
             cursor.execute("SELECT * FROM contracts WHERE contract_id = ?", (contract_id,))
             rows = cursor.fetchall()
-            contract_id, message_id, chat_id, messagecon = rows[0]
+            contract_id, message_id, chat_id, messagecon, button = rows[0]
             accept_keyboard = admin_accept_keyboard(contract_id, user_id)
             bot.send_message(user_id, f'Вы отправили свою заявку на конкурс исполнителей!')
             for admin in admin_user_ids:
-                bot.send_message(admin, f'На контракт №{contract_id} подал заявку @{username}, выбирайте его судьбу!', reply_markup=accept_keyboard)
+                bot.send_message(admin, f'На контракт <code>{contract_id}</code> подал заявку @{username}, выбирайте его судьбу!', reply_markup=accept_keyboard, parse_mode='html')
         else:
             bot.send_message(user_id, f'Увы, но контракт уже подписан!')
     if message.text.startswith('/start adminaccept'):
@@ -336,12 +350,79 @@ def start(message):
                 make_contract_message_signed(contract_id)
                 for admin in admin_user_ids:
                     bot.send_message(admin,
-                                     f'#контракт #подписан\nКонтракт №{contract_id} был подписан с @{executor_username}, избранным народным голосованием!')
-                bot.send_message(executor,f'Поздравялем!\nКонтракт {contract_id} был подписан с @{executor_username}, тоесть с Вами!!!')
+                                     f'#контракт #подписан\nКонтракт <code>{contract_id}</code> был подписан с @{executor_username}, избранным народным голосованием!', parse_mode='html')
+                bot.send_message(executor,f'Поздравялем!\nКонтракт <code>{contract_id}</code> был подписан с @{executor_username}, тоесть с Вами!!!',parse_mode='html')
+        else:
+            bot.send_message(user_id, 'Этот контракт уже подписан!')
+
+    if message.text.startswith('/start votecontract'):
+        _, action, contract_id = message.text.split('_', 2)
+
+        cursor.execute("SELECT * FROM contracts WHERE contract_id = ?", (contract_id, ))
+        contract = cursor.fetchall()[0]
+        shit, cmessage_id, cchat_id, cmessage, button = contract
+
+        cursor.execute('SELECT voted FROM admin_contract_votes WHERE admin_id = ? AND contract_id = ?', (user_id, contract_id))
+        voted = cursor.fetchone()[0]
+
+        cursor.execute('SELECT votes FROM contract_vote WHERE contract_id = ?', (contract_id, ))
+        votes = cursor.fetchone()[0]
+
+        if not voted:
+            if action == 'accept':
+                votes += 1
+            if action == 'decline':
+                votes -= 1
+
+            bot.send_message(user_id, 'Вы успешно проголосовали!')
+
+            cursor.execute('UPDATE admin_contract_votes SET voted = ? WHERE admin_id = ? AND contract_id = ?', (1, user_id, contract_id))
+            conn.commit()
+
+            cursor.execute('UPDATE contract_vote SET votes = ? WHERE contract_id = ?', (votes, contract_id))
+            conn.commit()
+
+            if votes >= len(admin_user_ids) // 2:
+
+                for admin in admin_user_ids:
+                    bot.send_message(admin, f'Контракт <code>{contract_id}</code> был принят администраторами! Приступаем к выкладыванию', parse_mode='html')
+
+                sent_message = bot.send_message(load_channel_id(), cmessage, parse_mode='html')
+
+                print()
+
+                if button is not None:
+
+                    if button == 'Одноразовый':
+                        # если одноразовый, то генерируем ссылку на одноразовое
+                        sign_keyboard = one_sign_keyboard(contract_id)
+                        # обновляем сообщение, добавляя туда кнопку для подписания
+                        bot.edit_message_text(cmessage, load_channel_id(), sent_message.message_id, reply_markup=sign_keyboard,
+                                              parse_mode='html')
+
+                    if button == 'Конкурс':
+                        # конкурс
+                        sign_keyboard = konkurs_sign_keyboard(contract_id)
+                        bot.edit_message_text(cmessage, load_channel_id(), sent_message.message_id, reply_markup=sign_keyboard,
+                                              parse_mode='html')
+
+                        for admin_id in admin_user_ids:
+                            cursor.execute('INSERT INTO admin_votes (admin_id, contract_id, voted) VALUES (?, ?, ?)',
+                                           (admin_id, contract_id, False))
+                            conn.commit()
+
+                else:
+                    bot.edit_message_text(message, load_channel_id(), sent_message.message_id, parse_mode='html')
+
+                cursor.execute('UPDATE contracts SET message_id = ? WHERE contract_id = ?', (sent_message.message_id, contract_id))
+                conn.commit()
+
+
+        if voted:
+            bot.send_message(user_id, 'Вы уже проголосовали в выборе этого контракта')
 
 
 contract_types_list = ['Одноразовый', 'Конкурс']
-
 
 def types_keyboard():
     keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True)
@@ -417,6 +498,7 @@ def handle_contract_type(message):
     week = types.KeyboardButton(f'{seven_days_later[:-10]}')
     month = types.KeyboardButton(f'{thirty_days_later[:-10]}')
     keyboard.add(tommorow, days3, week, month)
+
     user_id = message.from_user.id
     user_data[message.chat.id]["tz"] = message.text
     user_data[message.chat.id]["tz_status"] = True
@@ -428,10 +510,22 @@ def handle_contract_type(message):
                                           user_data[message.chat.id]["stage"] == 0)
 def handle_contract_type(message):
     user_id = message.from_user.id
+
+    keyboard = types.ReplyKeyboardMarkup(one_time_keyboard=True, resize_keyboard=True) # Клавиатура с заготовленными стоимостями
+    c500 =  types.KeyboardButton('500')
+    c1000 =  types.KeyboardButton('1000')
+    c1500 =  types.KeyboardButton('1500')
+    c2000 =  types.KeyboardButton('2000')
+    c2500 =  types.KeyboardButton('2500')
+    c3000 =  types.KeyboardButton('3000')
+    c4000 =  types.KeyboardButton('4000')
+    c5000 =  types.KeyboardButton('5000')
+    keyboard.add(c500, c1000, c1500, c2000, c2500, c3000, c4000, c5000)
+
     user_data[message.chat.id]["srok"] = message.text
     user_data[message.chat.id]["srok_status"] = True
     user_data[user_id]['step'] = 5
-    bot.send_message(message.chat.id, 'Введите стоимость(Число, "BMC" будет дописано автоматически)')
+    bot.send_message(message.chat.id, 'Выбреите заготовленное значение или введите стоимость(Число, "BMC" будет дописано автоматически)', reply_markup=keyboard)
 
 
 @bot.message_handler(func=lambda message: message.chat.id in user_data and user_data[message.chat.id]["step"] == 5 and
@@ -442,7 +536,7 @@ def handle_contract_type(message):
     user_data[message.chat.id]["cost_status"] = True
     user_data[user_id]['step'] = 6
     bot.send_message(message.chat.id,
-                     'Введите Дополнительные условия(Просто текст, если условий нет, то отправьте "Н")')
+                     'Введите Дополнительные условия(Просто текст, если условий нет, то отправьте русскую "Н")')
 
 
 @bot.message_handler(func=lambda message: message.chat.id in user_data and user_data[message.chat.id]["step"] == 6 and
@@ -462,7 +556,7 @@ def handle_contract_type(message):
 
 
 ##################################################### тут stage 1 ######################################################
-
+# stage 1 - это когда человек нажал "Править" после ввода контракта (тут та самая обработка большой менюшки)
 
 @bot.message_handler(func=lambda message: message.chat.id in user_data and user_data[message.chat.id]["step"] == 1 and
                                           user_data[message.chat.id]["stage"] == 1)
@@ -536,7 +630,7 @@ def finish_contract(call):
         if user_data[user_id].get("hash_status") and user_data[user_id].get("type_status") and user_data[user_id].get(
                 "tz_status") and user_data[user_id].get("srok_status") and user_data[user_id].get("cost_status"):
             contract_message = f"{user_data[user_id]['hashtags']}\n\n"
-            contract_message += f"Статус контракта: {user_data[user_id].get('contract_status')}\n\n"
+            contract_message += f"Статус контракта:\n{user_data[user_id].get('contract_status')}\n\n"
             contract_message += f"<b>Тип:</b>\n{user_data[user_id]['contract_type']}\n\n"
             contract_message += f"<b>ТЗ:</b>\n{user_data[user_id]['tz']}\n\n"
             contract_message += f"<b>Срок выполнения:</b>\n{user_data[user_id]['srok']}\n\n"
@@ -590,6 +684,19 @@ def konkurs_sign_keyboard(uid):
     sign_keyboard.add(button)
     return sign_keyboard
 
+def start_contract_voting(contract_id, message):
+    # клавиатура для голосования за контракты
+    vote_keyboard = types.InlineKeyboardMarkup(row_width=2)
+    accept = types.InlineKeyboardButton('Принять', url=f't.me/monopolycontractbot?start=votecontract_accept_{contract_id}')
+    decline = types.InlineKeyboardButton('Отклонить', url=f't.me/monopolycontractbot?start=votecontract_decline_{contract_id}')
+    vote_keyboard.add(accept, decline)
+
+    for admin_id in admin_user_ids:
+        cursor.execute("INSERT INTO admin_contract_votes (admin_id, contract_id, voted) VALUES (?, ?, ?)", (admin_id, contract_id, 0))
+        conn.commit()
+
+        bot.send_message(admin_id, f'На голосование поступил контрак:\n\n{message}\n\nВершите его судьбой!', reply_markup=vote_keyboard, parse_mode='html')
+
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_handler(call):
@@ -621,34 +728,24 @@ def callback_handler(call):
     if callback.startswith('accept_'):
         uid = str(uuid.uuid4().hex)[22:]
         message = user_data[user_id].get("message")
-        sent_message = bot.send_message(load_channel_id(), message, parse_mode='html')
-        print(user_data[user_id].get('contract_type'))
-        if user_data[user_id].get('button_status'):
-            if user_data[user_id].get('contract_type') == 'Одноразовый':
-                # если одноразовый, то генерируем ссылку на одноразовое
-                sign_keyboard = one_sign_keyboard(uid)
-                # обновляем сообщение, добавляя туда кнопку для подписания
-                bot.edit_message_text(message, load_channel_id(), sent_message.message_id, reply_markup=sign_keyboard,
-                                      parse_mode='html')
-            if user_data[user_id].get('contract_type') == 'Конкурс':
-                # конкурс
-                sign_keyboard = konkurs_sign_keyboard(uid)
-                bot.edit_message_text(message, load_channel_id(), sent_message.message_id, reply_markup=sign_keyboard,
-                                      parse_mode='html')
-                for admin_id in admin_user_ids:
-                    cursor.execute('INSERT INTO admin_votes (admin_id, contract_id, voted) VALUES (?, ?, ?)',
-                                   (admin_id, uid, False))
-                    conn.commit()
-        else:
-            bot.edit_message_text(message, load_channel_id(), sent_message.message_id, parse_mode='html')
 
-        cursor.execute("INSERT INTO contracts (contract_id, message_id, chat_id, message) VALUES (?, ?, ?, ?)",
-                       (uid, sent_message.message_id, load_channel_id(), message))
+        button = 'None'
+
+        if user_data[user_id].get('contract_type') in contract_types_list:
+            button = user_data[user_id].get('contract_type')
+
+        cursor.execute("INSERT INTO contracts (contract_id, chat_id, message, button) VALUES (?, ?, ?, ?)",
+                       (uid, load_channel_id(), message, button))
+        conn.commit()
+
+        cursor.execute("INSERT INTO contract_vote (contract_id, votes) VALUES (?, ?)", (uid, 0))
         conn.commit()
 
         cursor.execute("INSERT INTO executors (contract_id, executor) VALUES (?,?)",
                        (uid, 0))
         conn.commit()
+
+        start_contract_voting(uid, message)
 
         del user_data[user_id]
         bot.send_message(user_id, 'Действие выполнено!')
