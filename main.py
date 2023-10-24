@@ -8,7 +8,7 @@ from datetime import datetime, timedelta
 logger = telebot.logger
 telebot.logger.setLevel(logging.DEBUG)
 
-bot = telebot.TeleBot('6432599280:AAGtVe1czZYj5wFfDo4SqeNWjJpwhvvfoKc')
+bot = telebot.TeleBot('6564618537:AAEAhlv6PqO4z06j9Iju59x_5xWsN0fbaqM')
 
 admin_user_ids = [487545908, 1262539577, 849106299]
 
@@ -264,14 +264,17 @@ def start(message):
         cursor.execute("SELECT * FROM contracts WHERE contract_id = ?", (contract_id,))
         rows = cursor.fetchall()
         contract_id, message_id, chat_id, messagecon, button, timee = rows[0]
-        bot.send_message(user_id, f'Вы подписали контракт {contract_id}')
+        bot.send_photo(admin_id, photo=open('design/sign.jpg', 'rb'),
+                       caption=f'Вы подписали контракт {contract_id}',
+                       parse_mode='html')
         make_onetime_contract_message_signed(contract_id, username)
 
         show_contract_keyboard = create_show_contract_keyboard(contract_id)
 
         for admin_id in admin_user_ids:
-            bot.send_message(admin_id, f'@{username} подписал одноразовый контракт с номером <code>{contract_id}</code>',
+            bot.send_photo(admin_id, photo=open('design/sign.jpg', 'rb'), caption=f'@{username} подписал одноразовый контракт с номером <code>{contract_id}</code>',
                              parse_mode='html', reply_markup=show_contract_keyboard)
+
     if message.text.startswith('/start signkonkurs'):
         contract_id = message.text.replace('/start signkonkurs', '', 1)
 
@@ -283,9 +286,11 @@ def start(message):
             rows = cursor.fetchall()
             contract_id, message_id, chat_id, messagecon, button, timee = rows[0]
             accept_keyboard = admin_accept_keyboard(contract_id, user_id)
-            bot.send_message(user_id, f'Вы отправили свою заявку на конкурс исполнителей!')
+            bot.send_photo(user_id, photo=open('design/handshake.jpg', 'rb'), caption=f'Вы отправили свою заявку на конкурс исполнителей!')
             for admin in admin_user_ids:
-                bot.send_message(admin, f'На контракт <code>{contract_id}</code> подал заявку @{username}, выбирайте его судьбу! (Если вы не хотите голосовать за него, просто выберите другого исполнителя)\n\n<b>Также, это сообщение можно переслать в чат, все кнопки сохранятся</b>', reply_markup=accept_keyboard, parse_mode='html')
+                bot.send_photo(user_id, photo=open('design/newcontract.jpg', 'rb'),
+                               caption=f'На контракт <code>{contract_id}</code> подал заявку @{username}, выбирайте его судьбу! (Если вы не хотите голосовать за него, просто выберите другого исполнителя)\n\n<b>Также, это сообщение можно переслать в чат, все кнопки сохранятся</b>', reply_markup=accept_keyboard, parse_mode='html')
+                # bot.send_message(admin, f'На контракт <code>{contract_id}</code> подал заявку @{username}, выбирайте его судьбу! (Если вы не хотите голосовать за него, просто выберите другого исполнителя)\n\n<b>Также, это сообщение можно переслать в чат, все кнопки сохранятся</b>', reply_markup=accept_keyboard, parse_mode='html')
         else:
             bot.send_message(user_id, f'Увы, но контракт уже подписан!')
     if message.text.startswith('/start adminaccept'):
@@ -325,7 +330,7 @@ def start(message):
             else:
                 votes += 1
                 cursor.execute('UPDATE admin_votes SET voted = ? WHERE admin_id = ? AND contract_id = ?', (True, user_id, contract_id))
-                bot.send_message(user_id, f'Вы успешно проголосовали в контракте №{contract_id}!')
+                bot.send_photo(user_id, photo=open('design/handshake.jpg', 'rb'), caption=f'Вы успешно проголосовали в контракте №{contract_id}!')
 
             cursor.execute("UPDATE pretendents SET votes = ? WHERE pretendent_id = ? AND contract_id = ?",
                            (votes, executor_id, contract_id))
@@ -356,9 +361,10 @@ def start(message):
                 show_contract_keyboard = create_show_contract_keyboard(contract_id)
 
                 for admin in admin_user_ids:
-                    bot.send_message(admin,
-                                     f'#контракт #подписан\nКонтракт <code>{contract_id}</code> был подписан с @{executor_username}, избранным народным голосованием!', parse_mode='html', reply_markup=show_contract_keyboard)
-                bot.send_message(executor,f'Поздравялем!\nКонтракт <code>{contract_id}</code> был подписан с @{executor_username}, тоесть с Вами!!!',parse_mode='html')
+                    bot.send_photo(admin, photo=open('design/sign.jpg', 'rb'),
+                                   caption=f'#контракт #подписан\nКонтракт <code>{contract_id}</code> был подписан с @{executor_username}, избранным народным голосованием!', parse_mode='html', reply_markup=show_contract_keyboard)
+
+                bot.send_photo(executor, photo=open('design/sign.jpg', 'rb'), caption=f'Поздравялем!\nКонтракт <code>{contract_id}</code> был подписан с @{executor_username}, тоесть с Вами!!!',parse_mode='html')
         else:
             bot.send_message(user_id, 'Этот контракт уже подписан!')
 
@@ -381,7 +387,7 @@ def start(message):
             if action == 'decline':
                 votes -= 1
 
-            bot.send_message(user_id, 'Вы успешно проголосовали!')
+            bot.send_photo(user_id, photo=open('design/handshake.jpg', 'rb'), caption=f'Вы успешно проголосовали в контракте №{contract_id}!')
 
             cursor.execute('UPDATE admin_contract_votes SET voted = ? WHERE admin_id = ? AND contract_id = ?', (1, user_id, contract_id))
             conn.commit()
@@ -395,8 +401,6 @@ def start(message):
                     bot.send_message(admin, f'Контракт <code>{contract_id}</code> был принят администраторами! Приступаем к выкладыванию', parse_mode='html')
 
                 sent_message = bot.send_message(load_channel_id(), cmessage, parse_mode='html')
-
-                print()
 
                 if button is not None:
 
@@ -713,8 +717,8 @@ def start_contract_voting(contract_id, message):
     for admin_id in admin_user_ids:
         cursor.execute("INSERT INTO admin_contract_votes (admin_id, contract_id, voted) VALUES (?, ?, ?)", (admin_id, contract_id, 0))
         conn.commit()
-
-        bot.send_message(admin_id, f'На голосование поступил контракт:\n\n{message}\n\nВершите его судьбой!', reply_markup=vote_keyboard, parse_mode='html')
+        bot.send_photo(admin_id, photo=open('design/newcontract.jpg', 'rb'), caption=f'На голосование поступил контракт:\n\n{message}\n\nВершите его судьбой!', reply_markup=vote_keyboard, parse_mode='html')
+        # bot.send_message(admin_id, f'На голосование поступил контракт:\n\n{message}\n\nВершите его судьбой!', reply_markup=vote_keyboard, parse_mode='html')
 
 
 @bot.callback_query_handler(func=lambda call: True)
