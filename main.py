@@ -259,6 +259,7 @@ def start(message):
     user_id = message.from_user.id
     user = bot.get_chat(user_id)
     username = user.username
+    # подпись одноразового
     if message.text.startswith('/start signonetime'):
         contract_id = message.text.replace('/start signonetime', '', 1)
         cursor.execute("SELECT * FROM contracts WHERE contract_id = ?", (contract_id,))
@@ -268,18 +269,18 @@ def start(message):
                        caption=f'Вы подписали контракт {contract_id}',
                        parse_mode='html')
         make_onetime_contract_message_signed(contract_id, username)
-
         show_contract_keyboard = create_show_contract_keyboard(contract_id)
 
         for admin_id in admin_user_ids:
             bot.send_photo(admin_id, photo=open('design/sign.jpg', 'rb'), caption=f'@{username} подписал одноразовый контракт с номером <code>{contract_id}</code>',
                              parse_mode='html', reply_markup=show_contract_keyboard)
-
+    # подпись конкурса
     if message.text.startswith('/start signkonkurs'):
         contract_id = message.text.replace('/start signkonkurs', '', 1)
 
         cursor.execute("SELECT * FROM executors WHERE contract_id = ?", (contract_id,))
         rows = cursor.fetchall()[0]
+        # если у контракта нет исполнителя
         if rows[2] == 0:
             check_for_pretender(user_id, contract_id)
             cursor.execute("SELECT * FROM contracts WHERE contract_id = ?", (contract_id,))
@@ -293,6 +294,8 @@ def start(message):
                 # bot.send_message(admin, f'На контракт <code>{contract_id}</code> подал заявку @{username}, выбирайте его судьбу! (Если вы не хотите голосовать за него, просто выберите другого исполнителя)\n\n<b>Также, это сообщение можно переслать в чат, все кнопки сохранятся</b>', reply_markup=accept_keyboard, parse_mode='html')
         else:
             bot.send_message(user_id, f'Увы, но контракт уже подписан!')
+
+    # окончание конкурса
     if message.text.startswith('/start adminaccept'):
         _, contract_id, executor_id = message.text.split('_', 2)
         executor_id = int(executor_id)
@@ -311,6 +314,7 @@ def start(message):
 
         cursor.execute("SELECT * FROM pretendents WHERE contract_id = ? AND pretendent_id = ?", (contract_id, executor_id))
         rows1 = cursor.fetchall()
+        # если нет исполнителя
         if rows[2] == 0:
 
             pretendents = rows[1].split(',')
@@ -330,6 +334,7 @@ def start(message):
             else:
                 votes += 1
                 cursor.execute('UPDATE admin_votes SET voted = ? WHERE admin_id = ? AND contract_id = ?', (True, user_id, contract_id))
+                conn.commit()
                 bot.send_photo(user_id, photo=open('design/handshake.jpg', 'rb'), caption=f'Вы успешно проголосовали в контракте №{contract_id}!')
 
             cursor.execute("UPDATE pretendents SET votes = ? WHERE pretendent_id = ? AND contract_id = ?",
@@ -343,8 +348,10 @@ def start(message):
             voted = []
             for admin_vote in admin_votes:
                 voted.append(admin_vote[2])
+            # если нет не проголосовавших админов, то
             if voted.count(False) == 0:
                 winner = {}
+                # подсчет у кого брльше голосов, тот и становится исполнителем
                 for pretendent in pretendents:
                     pretendent_id = int(pretendent)
                     cursor.execute("SELECT * FROM pretendents WHERE contract_id = ? AND pretendent_id = ?", (contract_id, pretendent_id))
@@ -368,6 +375,7 @@ def start(message):
         else:
             bot.send_message(user_id, 'Этот контракт уже подписан!')
 
+    # когда кто-то подтверждает контракт, всем отправляется голосвания выкалдывать его или нет.
     if message.text.startswith('/start votecontract'):
         _, action, contract_id = message.text.split('_', 2)
 
@@ -395,6 +403,7 @@ def start(message):
             cursor.execute('UPDATE contract_vote SET votes = ? WHERE contract_id = ?', (votes, contract_id))
             conn.commit()
 
+            # подсчет результатов
             if votes >= len(admin_user_ids) // 2:
 
                 for admin in admin_user_ids:
@@ -748,6 +757,7 @@ def callback_handler(call):
         bot.send_message(user_id, 'Создание отменено! Если хотите начать снова - напишите /start')
     if callback == 'done':
         finish_contract(call)
+    # отвечает за выкладывание контракта
     if callback.startswith('accept_'):
         uid = str(uuid.uuid4().hex)[22:]
         message = user_data[user_id].get("message")
@@ -777,6 +787,7 @@ def callback_handler(call):
         start_contract_voting(uid, message)
 
         del user_data[user_id]
+        # контракт отправлен на рассмотерние алдминов
         bot.send_message(user_id, 'Действие выполнено!')
     if callback.startswith('decline_'):
         message_id = int(callback.replace('decline_', '', 1))
