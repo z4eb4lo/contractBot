@@ -1,0 +1,348 @@
+2023-11-18 11:33:58,396 INFO: Контракт 36585673d0 был принят администраторами
+2023-11-18 11:33:58,396 DEBUG: Request: method=post url=https://api.telegram.org/bot6432599280:{TOKEN}/editMessageText params={'text': '#контракт\n\n#123 \n\nСтатус контракта:\n\U0001f634Ожидает своего исполнителя\n\n<b>Тип:</b>\nОдноразовый\n\n<b>ТЗ:</b>\n234\n\n<b>Срок выполнения:</b>\n2023-11-21 00:00\n\n<b>Стоимость:</b>\n2500 BMC\n\n', 'chat_id': -1001558266063, 'message_id': 122, 'parse_mode': 'html', 'reply_markup': '{"inline_keyboard": [[{"text": "\\u041f\\u043e\\u0434\\u043f\\u0438\\u0441\\u0430\\u0442\\u044c \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442", "url": "t.me/monopolycontractbot?start=signonetime36585673d0"}]]}'} files=None
+2023-11-18 11:33:58,539 DEBUG: The server returned: 'b'{"ok":true,"result":{"message_id":122,"sender_chat":{"id":-1001558266063,"title":"z4eb4lo DEV.","username":"z4eb4lo_dev","type":"channel"},"chat":{"id":-1001558266063,"title":"z4eb4lo DEV.","username":"z4eb4lo_dev","type":"channel"},"date":1700296439,"edit_date":1700296440,"text":"#\\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\n\\n#123 \\n\\n\\u0421\\u0442\\u0430\\u0442\\u0443\\u0441 \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430:\\n\\ud83d\\ude34\\u041e\\u0436\\u0438\\u0434\\u0430\\u0435\\u0442 \\u0441\\u0432\\u043e\\u0435\\u0433\\u043e \\u0438\\u0441\\u043f\\u043e\\u043b\\u043d\\u0438\\u0442\\u0435\\u043b\\u044f\\n\\n\\u0422\\u0438\\u043f:\\n\\u041e\\u0434\\u043d\\u043e\\u0440\\u0430\\u0437\\u043e\\u0432\\u044b\\u0439\\n\\n\\u0422\\u0417:\\n234\\n\\n\\u0421\\u0440\\u043e\\u043a \\u0432\\u044b\\u043f\\u043e\\u043b\\u043d\\u0435\\u043d\\u0438\\u044f:\\n2023-11-21 00:00\\n\\n\\u0421\\u0442\\u043e\\u0438\\u043c\\u043e\\u0441\\u0442\\u044c:\\n2500 BMC","entities":[{"offset":0,"length":9,"type":"hashtag"},{"offset":66,"length":4,"type":"bold"},{"offset":84,"length":3,"type":"bold"},{"offset":93,"length":16,"type":"bold"},{"offset":128,"length":10,"type":"bold"}],"reply_markup":{"inline_keyboard":[[{"text":"\\u041f\\u043e\\u0434\\u043f\\u0438\\u0441\\u0430\\u0442\\u044c \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442","url":"http://t.me/monopolycontractbot?start=signonetime36585673d0"}]]}}}''
+2023-11-18 11:33:58,627 DEBUG: Task complete
+2023-11-18 11:34:17,130 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:34:17,130 DEBUG: Received 0 new updates
+2023-11-18 11:34:17,130 DEBUG: Task complete
+2023-11-18 11:34:17,130 DEBUG: Received task
+2023-11-18 11:34:17,131 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:34:37,206 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:34:37,206 DEBUG: Received 0 new updates
+2023-11-18 11:34:37,206 DEBUG: Task complete
+2023-11-18 11:34:37,206 DEBUG: Received task
+2023-11-18 11:34:37,207 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:34:57,283 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:34:57,283 DEBUG: Received 0 new updates
+2023-11-18 11:34:57,283 DEBUG: Task complete
+2023-11-18 11:34:57,284 DEBUG: Received task
+2023-11-18 11:34:57,284 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:35:17,390 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:35:17,390 DEBUG: Received 0 new updates
+2023-11-18 11:35:17,390 DEBUG: Task complete
+2023-11-18 11:35:17,390 DEBUG: Received task
+2023-11-18 11:35:17,391 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:35:37,459 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:35:37,459 DEBUG: Received 0 new updates
+2023-11-18 11:35:37,459 DEBUG: Task complete
+2023-11-18 11:35:37,459 DEBUG: Received task
+2023-11-18 11:35:37,460 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:35:57,562 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:35:57,562 DEBUG: Received 0 new updates
+2023-11-18 11:35:57,562 DEBUG: Task complete
+2023-11-18 11:35:57,562 DEBUG: Received task
+2023-11-18 11:35:57,563 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:36:17,634 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:36:17,634 DEBUG: Received 0 new updates
+2023-11-18 11:36:17,634 DEBUG: Task complete
+2023-11-18 11:36:17,634 DEBUG: Received task
+2023-11-18 11:36:17,634 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:36:37,720 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:36:37,720 DEBUG: Received 0 new updates
+2023-11-18 11:36:37,720 DEBUG: Task complete
+2023-11-18 11:36:37,720 DEBUG: Received task
+2023-11-18 11:36:37,721 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:36:57,822 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:36:57,822 DEBUG: Received 0 new updates
+2023-11-18 11:36:57,822 DEBUG: Task complete
+2023-11-18 11:36:57,823 DEBUG: Received task
+2023-11-18 11:36:57,823 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:37:17,910 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:37:17,910 DEBUG: Received 0 new updates
+2023-11-18 11:37:17,910 DEBUG: Task complete
+2023-11-18 11:37:17,910 DEBUG: Received task
+2023-11-18 11:37:17,911 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:37:37,986 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:37:37,986 DEBUG: Received 0 new updates
+2023-11-18 11:37:37,986 DEBUG: Task complete
+2023-11-18 11:37:37,986 DEBUG: Received task
+2023-11-18 11:37:37,987 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:37:58,061 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:37:58,061 DEBUG: Received 0 new updates
+2023-11-18 11:37:58,061 DEBUG: Task complete
+2023-11-18 11:37:58,062 DEBUG: Received task
+2023-11-18 11:37:58,062 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:38:18,147 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:38:18,157 DEBUG: Received 0 new updates
+2023-11-18 11:38:18,157 DEBUG: Task complete
+2023-11-18 11:38:18,158 DEBUG: Received task
+2023-11-18 11:38:18,158 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:38:38,251 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:38:38,251 DEBUG: Received 0 new updates
+2023-11-18 11:38:38,251 DEBUG: Task complete
+2023-11-18 11:38:38,251 DEBUG: Received task
+2023-11-18 11:38:38,251 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:38:58,332 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:38:58,332 DEBUG: Received 0 new updates
+2023-11-18 11:38:58,332 DEBUG: Task complete
+2023-11-18 11:38:58,332 DEBUG: Received task
+2023-11-18 11:38:58,333 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:39:18,428 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:39:18,428 DEBUG: Received 0 new updates
+2023-11-18 11:39:18,429 DEBUG: Task complete
+2023-11-18 11:39:18,429 DEBUG: Received task
+2023-11-18 11:39:18,429 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:39:38,494 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:39:38,494 DEBUG: Received 0 new updates
+2023-11-18 11:39:38,494 DEBUG: Task complete
+2023-11-18 11:39:38,494 DEBUG: Received task
+2023-11-18 11:39:38,495 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:39:58,565 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:39:58,565 DEBUG: Received 0 new updates
+2023-11-18 11:39:58,565 DEBUG: Task complete
+2023-11-18 11:39:58,565 DEBUG: Received task
+2023-11-18 11:39:58,566 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:40:18,654 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:40:18,654 DEBUG: Received 0 new updates
+2023-11-18 11:40:18,655 DEBUG: Task complete
+2023-11-18 11:40:18,655 DEBUG: Received task
+2023-11-18 11:40:18,655 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:40:38,737 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:40:38,737 DEBUG: Received 0 new updates
+2023-11-18 11:40:38,737 DEBUG: Task complete
+2023-11-18 11:40:38,737 DEBUG: Received task
+2023-11-18 11:40:38,737 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:40:58,815 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:40:58,815 DEBUG: Received 0 new updates
+2023-11-18 11:40:58,815 DEBUG: Task complete
+2023-11-18 11:40:58,815 DEBUG: Received task
+2023-11-18 11:40:58,816 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:41:18,894 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:41:18,894 DEBUG: Received 0 new updates
+2023-11-18 11:41:18,894 DEBUG: Task complete
+2023-11-18 11:41:18,894 DEBUG: Received task
+2023-11-18 11:41:18,895 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:41:38,970 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:41:38,970 DEBUG: Received 0 new updates
+2023-11-18 11:41:38,970 DEBUG: Task complete
+2023-11-18 11:41:38,970 DEBUG: Received task
+2023-11-18 11:41:38,970 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:41:59,042 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:41:59,042 DEBUG: Received 0 new updates
+2023-11-18 11:41:59,042 DEBUG: Task complete
+2023-11-18 11:41:59,042 DEBUG: Received task
+2023-11-18 11:41:59,043 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:42:19,111 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:42:19,111 DEBUG: Received 0 new updates
+2023-11-18 11:42:19,111 DEBUG: Task complete
+2023-11-18 11:42:19,111 DEBUG: Received task
+2023-11-18 11:42:19,112 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:42:39,177 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:42:39,177 DEBUG: Received 0 new updates
+2023-11-18 11:42:39,177 DEBUG: Task complete
+2023-11-18 11:42:39,178 DEBUG: Received task
+2023-11-18 11:42:39,178 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:42:59,294 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:42:59,294 DEBUG: Received 0 new updates
+2023-11-18 11:42:59,294 DEBUG: Task complete
+2023-11-18 11:42:59,295 DEBUG: Received task
+2023-11-18 11:42:59,295 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:43:19,392 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:43:19,392 DEBUG: Received 0 new updates
+2023-11-18 11:43:19,392 DEBUG: Task complete
+2023-11-18 11:43:19,392 DEBUG: Received task
+2023-11-18 11:43:19,393 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:43:40,432 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:43:40,432 DEBUG: Received 0 new updates
+2023-11-18 11:43:40,432 DEBUG: Task complete
+2023-11-18 11:43:40,432 DEBUG: Received task
+2023-11-18 11:43:40,432 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:44:00,520 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:44:00,520 DEBUG: Received 0 new updates
+2023-11-18 11:44:00,520 DEBUG: Task complete
+2023-11-18 11:44:00,520 DEBUG: Received task
+2023-11-18 11:44:00,520 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:44:20,601 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:44:20,601 DEBUG: Received 0 new updates
+2023-11-18 11:44:20,601 DEBUG: Task complete
+2023-11-18 11:44:20,601 DEBUG: Received task
+2023-11-18 11:44:20,601 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:44:40,683 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:44:40,683 DEBUG: Received 0 new updates
+2023-11-18 11:44:40,683 DEBUG: Task complete
+2023-11-18 11:44:40,684 DEBUG: Received task
+2023-11-18 11:44:40,684 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:45:00,752 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:45:00,752 DEBUG: Received 0 new updates
+2023-11-18 11:45:00,753 DEBUG: Task complete
+2023-11-18 11:45:00,753 DEBUG: Received task
+2023-11-18 11:45:00,753 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:45:20,825 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:45:20,825 DEBUG: Received 0 new updates
+2023-11-18 11:45:20,825 DEBUG: Task complete
+2023-11-18 11:45:20,825 DEBUG: Received task
+2023-11-18 11:45:20,826 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:45:40,900 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:45:40,900 DEBUG: Received 0 new updates
+2023-11-18 11:45:40,900 DEBUG: Task complete
+2023-11-18 11:45:40,900 DEBUG: Received task
+2023-11-18 11:45:40,901 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:46:00,981 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:46:00,981 DEBUG: Received 0 new updates
+2023-11-18 11:46:00,981 DEBUG: Task complete
+2023-11-18 11:46:00,981 DEBUG: Received task
+2023-11-18 11:46:00,981 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:46:21,059 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:46:21,059 DEBUG: Received 0 new updates
+2023-11-18 11:46:21,060 DEBUG: Task complete
+2023-11-18 11:46:21,060 DEBUG: Received task
+2023-11-18 11:46:21,060 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:46:41,128 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:46:41,128 DEBUG: Received 0 new updates
+2023-11-18 11:46:41,128 DEBUG: Task complete
+2023-11-18 11:46:41,129 DEBUG: Received task
+2023-11-18 11:46:41,129 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:47:01,205 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:47:01,205 DEBUG: Received 0 new updates
+2023-11-18 11:47:01,205 DEBUG: Task complete
+2023-11-18 11:47:01,205 DEBUG: Received task
+2023-11-18 11:47:01,206 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:47:21,276 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:47:21,276 DEBUG: Received 0 new updates
+2023-11-18 11:47:21,276 DEBUG: Task complete
+2023-11-18 11:47:21,276 DEBUG: Received task
+2023-11-18 11:47:21,277 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:47:41,354 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:47:41,354 DEBUG: Received 0 new updates
+2023-11-18 11:47:41,354 DEBUG: Task complete
+2023-11-18 11:47:41,354 DEBUG: Received task
+2023-11-18 11:47:41,355 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:48:01,431 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:48:01,431 DEBUG: Received 0 new updates
+2023-11-18 11:48:01,431 DEBUG: Task complete
+2023-11-18 11:48:01,431 DEBUG: Received task
+2023-11-18 11:48:01,432 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:48:21,512 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:48:21,512 DEBUG: Received 0 new updates
+2023-11-18 11:48:21,512 DEBUG: Task complete
+2023-11-18 11:48:21,513 DEBUG: Received task
+2023-11-18 11:48:21,513 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:48:41,584 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:48:41,585 DEBUG: Received 0 new updates
+2023-11-18 11:48:41,585 DEBUG: Task complete
+2023-11-18 11:48:41,585 DEBUG: Received task
+2023-11-18 11:48:41,585 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:49:01,670 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:49:01,670 DEBUG: Received 0 new updates
+2023-11-18 11:49:01,670 DEBUG: Task complete
+2023-11-18 11:49:01,670 DEBUG: Received task
+2023-11-18 11:49:01,671 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:49:21,751 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:49:21,751 DEBUG: Received 0 new updates
+2023-11-18 11:49:21,751 DEBUG: Task complete
+2023-11-18 11:49:21,751 DEBUG: Received task
+2023-11-18 11:49:21,751 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:49:41,824 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:49:41,824 DEBUG: Received 0 new updates
+2023-11-18 11:49:41,824 DEBUG: Task complete
+2023-11-18 11:49:41,825 DEBUG: Received task
+2023-11-18 11:49:41,825 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:50:02,191 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:50:02,191 DEBUG: Received 0 new updates
+2023-11-18 11:50:02,191 DEBUG: Task complete
+2023-11-18 11:50:02,192 DEBUG: Received task
+2023-11-18 11:50:02,192 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:50:22,265 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:50:22,266 DEBUG: Received 0 new updates
+2023-11-18 11:50:22,266 DEBUG: Task complete
+2023-11-18 11:50:22,267 DEBUG: Received task
+2023-11-18 11:50:22,267 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:50:42,344 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:50:42,344 DEBUG: Received 0 new updates
+2023-11-18 11:50:42,344 DEBUG: Task complete
+2023-11-18 11:50:42,344 DEBUG: Received task
+2023-11-18 11:50:42,344 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:51:02,412 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:51:02,412 DEBUG: Received 0 new updates
+2023-11-18 11:51:02,412 DEBUG: Task complete
+2023-11-18 11:51:02,413 DEBUG: Received task
+2023-11-18 11:51:02,413 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:51:22,479 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:51:22,479 DEBUG: Received 0 new updates
+2023-11-18 11:51:22,479 DEBUG: Task complete
+2023-11-18 11:51:22,479 DEBUG: Received task
+2023-11-18 11:51:22,479 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:51:42,556 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:51:42,556 DEBUG: Received 0 new updates
+2023-11-18 11:51:42,556 DEBUG: Task complete
+2023-11-18 11:51:42,557 DEBUG: Received task
+2023-11-18 11:51:42,557 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:52:02,629 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:52:02,629 DEBUG: Received 0 new updates
+2023-11-18 11:52:02,630 DEBUG: Task complete
+2023-11-18 11:52:02,630 DEBUG: Received task
+2023-11-18 11:52:02,630 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:52:22,710 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:52:22,710 DEBUG: Received 0 new updates
+2023-11-18 11:52:22,710 DEBUG: Task complete
+2023-11-18 11:52:22,711 DEBUG: Received task
+2023-11-18 11:52:22,711 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:52:42,778 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:52:42,778 DEBUG: Received 0 new updates
+2023-11-18 11:52:42,778 DEBUG: Task complete
+2023-11-18 11:52:42,778 DEBUG: Received task
+2023-11-18 11:52:42,778 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:53:02,859 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:53:02,859 DEBUG: Received 0 new updates
+2023-11-18 11:53:02,861 DEBUG: Task complete
+2023-11-18 11:53:02,861 DEBUG: Received task
+2023-11-18 11:53:02,861 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:53:22,934 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:53:22,934 DEBUG: Received 0 new updates
+2023-11-18 11:53:22,934 DEBUG: Task complete
+2023-11-18 11:53:22,935 DEBUG: Received task
+2023-11-18 11:53:22,935 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:53:43,587 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:53:43,587 DEBUG: Received 0 new updates
+2023-11-18 11:53:43,587 DEBUG: Task complete
+2023-11-18 11:53:43,587 DEBUG: Received task
+2023-11-18 11:53:43,587 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:54:03,661 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:54:03,661 DEBUG: Received 0 new updates
+2023-11-18 11:54:03,661 DEBUG: Task complete
+2023-11-18 11:54:03,662 DEBUG: Received task
+2023-11-18 11:54:03,662 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:54:23,766 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:54:23,766 DEBUG: Received 0 new updates
+2023-11-18 11:54:23,767 DEBUG: Task complete
+2023-11-18 11:54:23,767 DEBUG: Received task
+2023-11-18 11:54:23,767 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:54:44,301 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:54:44,301 DEBUG: Received 0 new updates
+2023-11-18 11:54:44,301 DEBUG: Task complete
+2023-11-18 11:54:44,301 DEBUG: Received task
+2023-11-18 11:54:44,301 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:55:04,388 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:55:04,390 DEBUG: Received 0 new updates
+2023-11-18 11:55:04,390 DEBUG: Task complete
+2023-11-18 11:55:04,390 DEBUG: Received task
+2023-11-18 11:55:04,390 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918643, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:55:04,471 DEBUG: The server returned: 'b'{"ok":true,"result":[{"update_id":249918643,\n"message":{"message_id":5054,"from":{"id":487545908,"is_bot":false,"first_name":"\\u1160\\u0437\\u0438\\u0431\\u043b\\u043e","username":"z4eb4lo","language_code":"ru","is_premium":true},"chat":{"id":487545908,"first_name":"\\u1160\\u0437\\u0438\\u0431\\u043b\\u043e","username":"z4eb4lo","type":"private"},"date":1700297705,"text":"/contracts","entities":[{"offset":0,"length":10,"type":"bot_command"}]}}]}''
+2023-11-18 11:55:04,471 DEBUG: Received 1 new updates
+2023-11-18 11:55:04,472 DEBUG: Task complete
+2023-11-18 11:55:04,473 DEBUG: Received task
+2023-11-18 11:55:04,473 DEBUG: Request: method=post url=https://api.telegram.org/bot6432599280:{TOKEN}/sendMessage params={'chat_id': '487545908', 'text': 'ID контракта: <code>1c81d5673d</code>\nИмя контракта: None\n\nID контракта: <code>f049b1151b</code>\nИмя контракта: None\n\nID контракта: <code>36585673d0</code>\nИмя контракта: None\n\nЧтобы посмотреть контракт, используйте <code>/showcon</code> {ID}\nЧтобы посмотреть лог, используйте   <code>/logcon</code> {ID}', 'reply_markup': '{"inline_keyboard": [[{"text": "\\u041f\\u0440\\u0435\\u0434\\u044b\\u0434\\u0443\\u0449\\u0438\\u0439", "callback_data": "invprev_-1"}, {"text": "1/1", "callback_data": "123"}, {"text": "\\u0421\\u043b\\u0435\\u0434\\u0443\\u044e\\u0449\\u0438\\u0439", "callback_data": "invnext_1"}], [{"text": "\\u041f\\u043e\\u0438\\u0441\\u043a \\u043f\\u043e \\u043d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u044e", "callback_data": "invsearch_name"}], [{"text": "\\u041f\\u043e\\u0438\\u0441\\u043a \\u043f\\u043e \\u0441\\u043e\\u0434\\u0435\\u0440\\u0436\\u0430\\u043d\\u0438\\u044e \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430", "callback_data": "invsearch_by_message"}]]}', 'parse_mode': 'html'} files=None
+2023-11-18 11:55:04,487 DEBUG: Received task
+2023-11-18 11:55:04,487 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918644, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:55:05,101 DEBUG: The server returned: 'b'{"ok":true,"result":{"message_id":5055,"from":{"id":6432599280,"is_bot":true,"first_name":"Monopoly Bot","username":"monopolycontractbot"},"chat":{"id":487545908,"first_name":"\\u1160\\u0437\\u0438\\u0431\\u043b\\u043e","username":"z4eb4lo","type":"private"},"date":1700297706,"text":"ID \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430: 1c81d5673d\\n\\u0418\\u043c\\u044f \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430: None\\n\\nID \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430: f049b1151b\\n\\u0418\\u043c\\u044f \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430: None\\n\\nID \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430: 36585673d0\\n\\u0418\\u043c\\u044f \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430: None\\n\\n\\u0427\\u0442\\u043e\\u0431\\u044b \\u043f\\u043e\\u0441\\u043c\\u043e\\u0442\\u0440\\u0435\\u0442\\u044c \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442, \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0439\\u0442\\u0435 /showcon {ID}\\n\\u0427\\u0442\\u043e\\u0431\\u044b \\u043f\\u043e\\u0441\\u043c\\u043e\\u0442\\u0440\\u0435\\u0442\\u044c \\u043b\\u043e\\u0433, \\u0438\\u0441\\u043f\\u043e\\u043b\\u044c\\u0437\\u0443\\u0439\\u0442\\u0435   /logcon {ID}","entities":[{"offset":14,"length":10,"type":"code"},{"offset":60,"length":10,"type":"code"},{"offset":106,"length":10,"type":"code"},{"offset":177,"length":8,"type":"code"},{"offset":227,"length":7,"type":"code"}],"reply_markup":{"inline_keyboard":[[{"text":"\\u041f\\u0440\\u0435\\u0434\\u044b\\u0434\\u0443\\u0449\\u0438\\u0439","callback_data":"invprev_-1"},{"text":"1/1","callback_data":"123"},{"text":"\\u0421\\u043b\\u0435\\u0434\\u0443\\u044e\\u0449\\u0438\\u0439","callback_data":"invnext_1"}],[{"text":"\\u041f\\u043e\\u0438\\u0441\\u043a \\u043f\\u043e \\u043d\\u0430\\u0437\\u0432\\u0430\\u043d\\u0438\\u044e","callback_data":"invsearch_name"}],[{"text":"\\u041f\\u043e\\u0438\\u0441\\u043a \\u043f\\u043e \\u0441\\u043e\\u0434\\u0435\\u0440\\u0436\\u0430\\u043d\\u0438\\u044e \\u043a\\u043e\\u043d\\u0442\\u0440\\u0430\\u043a\\u0442\\u0430","callback_data":"invsearch_by_message"}]]}}}''
+2023-11-18 11:55:05,103 DEBUG: Task complete
+2023-11-18 11:55:24,560 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:55:24,560 DEBUG: Received 0 new updates
+2023-11-18 11:55:24,560 DEBUG: Task complete
+2023-11-18 11:55:24,560 DEBUG: Received task
+2023-11-18 11:55:24,561 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918644, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:55:44,647 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:55:44,647 DEBUG: Received 0 new updates
+2023-11-18 11:55:44,647 DEBUG: Task complete
+2023-11-18 11:55:44,647 DEBUG: Received task
+2023-11-18 11:55:44,648 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918644, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:56:04,744 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:56:04,744 DEBUG: Received 0 new updates
+2023-11-18 11:56:04,744 DEBUG: Task complete
+2023-11-18 11:56:04,744 DEBUG: Received task
+2023-11-18 11:56:04,744 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918644, 'timeout': 20, 'long_polling_timeout': 20} files=None
+2023-11-18 11:56:24,828 DEBUG: The server returned: 'b'{"ok":true,"result":[]}''
+2023-11-18 11:56:24,829 DEBUG: Received 0 new updates
+2023-11-18 11:56:24,829 DEBUG: Task complete
+2023-11-18 11:56:24,829 DEBUG: Received task
+2023-11-18 11:56:24,829 DEBUG: Request: method=get url=https://api.telegram.org/bot6432599280:{TOKEN}/getUpdates params={'offset': 249918644, 'timeout': 20, 'long_polling_timeout': 20} files=None
